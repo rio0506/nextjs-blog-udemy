@@ -10,7 +10,6 @@ import { getPostsData } from '../lib/post';
 //SSGの場合
 export async function getStaticProps() {
   const allPostsData = getPostsData();//id,title,date,thumbnail
-  console.log(allPostsData);
 
   return {
     props: {
@@ -29,10 +28,10 @@ export default function Home({allPostsData}) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>吾輩わがはいは猫である。名前はまだ無い。
-　どこで生れたかとんと見当けんとうがつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。</p>
+　どこで生れたかとんと見当けんとうがつかぬ。</p>
       </section>
 
-      <section>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2>📝ブログ</h2>
         <div className={styles.grid}>
           {allPostsData.map(({id, title, date, thumbnail}) => (
